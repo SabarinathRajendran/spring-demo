@@ -1,0 +1,80 @@
+server:
+  port: ${SERVER_PORT:8765}
+spring:
+  cloud:
+    gateway:
+      discovery.locator.enabled: true
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: ${ALLOWED_ORIGINS:*}
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+#      routes:
+#        - id: delivery-route
+#          predicates:
+#            - Path=/delivery/**
+#          uri: ${DELIVERY_URI:lb://delivery-service}
+#          filters:
+#            - AuthenticationPrefilter
+#
+#        - id: management-route
+#          predicates:
+#            - Path=/management/**
+#          uri: ${MANAGEMENT_URI:lb://management-service}
+#          filters:
+#            - AuthenticationPrefilter
+#
+#        - id: authentication-service-route
+#          predicates:
+#            - Path=/authentication-service/**
+#          uri: ${AUTHENTICATION_URI:lb://authentication-service}
+#          filters:
+#            - AuthenticationPrefilter
+#
+#        - id: target-route
+#          predicates:
+#            - Path=/target/**
+#          uri: ${TARGET_URI:lb://target-service}
+#          filters:
+#            - AuthenticationPrefilter
+#
+#        - id: attachment-route
+#          predicates:
+#            - Path=/attachment/**
+#          uri: ${ATTACHMENT_URI:lb://attachment-service}
+#          filters:
+#            - AuthenticationPrefilter
+
+  application:
+    name:  ${SERVICE_NAME:api-gateway}
+  gateway:
+    excludedURLsNew: /api/v1/users/authenticate,/login,/forgotPassword,/reset
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: 'true'
+
+springfox:
+  documentation:
+    enabled: false
+
+logging:
+  level:
+    com:
+      cerclex:
+        epr: ${LOG_LEVEL_APP:ERROR}
+    root: ${LOG_LEVEL_ROOT:ERROR}

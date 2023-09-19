@@ -1,0 +1,16 @@
+package com.cerclex.epr.attachment.enums;
+
+public enum AttachementTypeEnum {
+    WEIGH_BRIDGE,
+    EWAY_BILL,
+    SOURCE_INVOICE,
+    LORRY_RECEIPT,
+    VEHICLE_PHOTO,
+    DELIVERY_CHALLAN,
+    DROP_PROOF,
+    RECYCLER_ACKNOWLEDGEMENT,
+    RECYCLER_CERTIFICATE,
+    CO_PROCESSING_CERTIFICATE,
+    PAYMENT_PROOF,
+    OTHERS
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "createDelivery": {
+      "category": "Category 1",
+      "deliveryDate": "2022-08-28T17:11:09.609Z",
+      "gstRate": 18,
+      "pricePerKg": 3.5,
+      "serviceProviderId": "string",
+      "stateName": "TAMILNADU",
+      "totalQuantity": 0,
+      "truckNo": "string",
+    }
+  },
+  {
+
+  }
+]

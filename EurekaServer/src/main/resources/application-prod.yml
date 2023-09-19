@@ -1,0 +1,21 @@
+
+spring:
+  application:
+    name: ${SERVICE_NAME:naming-server}
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+
+server:
+  port: 8761
+
+logging:
+  level:
+    com:
+      cerclex:
+        epr: ${LOG_LEVEL_APP:ERROR}
+    root: ${LOG_LEVEL_ROOT:ERROR}
